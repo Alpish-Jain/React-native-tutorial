@@ -1,6 +1,8 @@
 import React,{useState} from 'react';
+
 import { Entypo } from '@expo/vector-icons'; 
 import { Feather } from '@expo/vector-icons'; 
+
 import {View,Text,StyleSheet, TouchableWithoutFeedback} from 'react-native';
 
 export default function Box({no,boxInfo,chance,winner}){
@@ -8,6 +10,7 @@ export default function Box({no,boxInfo,chance,winner}){
     const player=isXChance?'X':'O';
     const {boxes,setBoxes}=boxInfo;
     return(
+
         <TouchableWithoutFeedback 
         onPress={()=>{
             if(boxes[no]===null && winner===null){
@@ -28,6 +31,12 @@ export default function Box({no,boxInfo,chance,winner}){
             </View>:
             <View style={styles.boxView}></View>
 }
+
+        <TouchableWithoutFeedback>
+            <View style={styles.boxView}>
+                <Text >{player}</Text>
+            </View>
+
         </TouchableWithoutFeedback>
     );
 }
