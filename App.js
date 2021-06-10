@@ -42,7 +42,6 @@ useEffect(()=>{
 
 },[isXChance])
 
-
 function Boxes(){
   return (
     <View style={styles.playBoard}>
