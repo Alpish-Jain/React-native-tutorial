@@ -64,7 +64,12 @@ function Boxes(){
   );
 }
 
+function resetValues(){
+  setWinner(null);
+  setBoxes(Array(9).fill(null));
+  setIsXChance(true);
 
+}
 
   return (
     <View style={styles.container}>
@@ -74,6 +79,7 @@ function Boxes(){
             <Text style={[styles.primaryText,styles.winnerText]}>{winner} Won!</Text>:
             <Text styles={styles.primaryText}>Chance:{isXChance?'X':'O'}</Text>
 }
+<Ionicons style={styles.resetIcon} name="reload-circle" size={24} color="black" onPress={resetValues} />
 
 </View>
     <Boxes />
