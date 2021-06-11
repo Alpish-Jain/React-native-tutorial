@@ -9,7 +9,6 @@ export default function App() {
 const [boxes,setBoxes]=useState(Array(9).fill(null));
 const [isXChance,setIsXChance]=useState(true);
 const [winner,setWinner]=useState(null);
-const [history,setHistory]=useState([boxes,]);
 
 function PlayBox(no){
   return(
@@ -41,6 +40,12 @@ useEffect(()=>{
   calculateWinner();
 
 },[isXChance])
+function resetValues(){
+  setWinner(null);
+  setBoxes(Array(9).fill(null));
+  setIsXChance(true);
+
+}
 
 function Boxes(){
   return (
@@ -64,12 +69,7 @@ function Boxes(){
   );
 }
 
-function resetValues(){
-  setWinner(null);
-  setBoxes(Array(9).fill(null));
-  setIsXChance(true);
 
-}
 
   return (
     <View style={styles.container}>
@@ -80,7 +80,6 @@ function resetValues(){
             <Text styles={styles.primaryText}>Chance:{isXChance?'X':'O'}</Text>
 }
 <Ionicons style={styles.resetIcon} name="reload-circle" size={24} color="black" onPress={resetValues} />
-
 </View>
     <Boxes />
     </View>
